@@ -1,6 +1,7 @@
 fix:
 blur effect around the image
-
+border radiuses should be standard 
+renaming assets
 
 
 
