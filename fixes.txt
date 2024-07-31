@@ -1,0 +1,8 @@
+fix:
+blur effect around the image
+
+
+
+
+feat:
+when closing the main app it should be a giant musiv player instead of it
