@@ -2,8 +2,7 @@ fix:
 blur effect around the image
 border radiuses should be standard 
 renaming assets
-
-
+font-family
 
 feat:
 when closing the main app it should be a giant musiv player instead of it
