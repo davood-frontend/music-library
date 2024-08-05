@@ -10,7 +10,8 @@ const darkMode = createTheme({
         allVariants: {
             color: '#F5F5F5'
         }
-    }
+    },
+    
 })
 
 export const MainTheme = ({ children }: { children: React.ReactNode }) => {
