@@ -4,6 +4,7 @@ border radiuses should be standard
 renaming assets
 font-family
 redesign: fontsize,fontfamily,colors and ...
+set font-size for icons
 
 feat:
-when closing the main app it should be a giant musiv player instead of it
+when closing the main app it should be a giant music player instead of it

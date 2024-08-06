@@ -13,7 +13,7 @@ const Albums = () => {
         <DarkBlurBg sx={{ mt: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pt: 1 }}>
                 <Box sx={{ display: 'flex' }}>
-                    <AlbumIcon sx={{ marginRight: 1 }} />
+                    <AlbumIcon sx={{ marginRight: 1, color: 'whiteSmoke' }} />
                     <Typography>Your album</Typography>
                 </Box>
                 <Box sx={{ display: 'flex' }}>

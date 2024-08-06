@@ -5,13 +5,16 @@ import React from "react";
 const darkMode = createTheme({
     palette: {
         mode: 'dark',
+        info: {
+            main: '#F5F5F5'
+        }
     },
     typography: {
         allVariants: {
             color: '#F5F5F5'
         }
     },
-    
+
 })
 
 export const MainTheme = ({ children }: { children: React.ReactNode }) => {
