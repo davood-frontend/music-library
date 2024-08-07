@@ -8,3 +8,4 @@ set font-size for icons
 
 feat:
 when closing the main app it should be a giant music player instead of it
+banner can be slider

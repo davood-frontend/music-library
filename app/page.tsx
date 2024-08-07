@@ -6,6 +6,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 import Profile from '@/app/components/main/sideBar/Profile';
 import Albums from '@/app/components/main/sideBar/Albums';
 import CurrentAlbum from './components/main/currentAlbum/CurrentAlbum';
+import Mix from './components/main/mix/Mix';
 const page = () => {
   return (
     <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100dvh' }}>
@@ -25,10 +26,8 @@ const page = () => {
             <CurrentAlbum />
           </Grid>
 
-          <Grid xs={3}>
-            <Box sx={{ height: 1 }} className='black-blur'>
-
-            </Box>
+          <Grid xs={3} sx={{ overflow: 'auto', height: 1 }}>
+            <Mix />
           </Grid>
 
         </Grid>
