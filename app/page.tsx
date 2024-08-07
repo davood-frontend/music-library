@@ -3,9 +3,9 @@ import { Box, Avatar } from '@mui/material';
 import mainBG from '@/app/assets/main-bg.jpg'
 import Image from 'next/image';
 import Grid from '@mui/material/Unstable_Grid2'
-import Profile from '@/app/components/main/Profile';
-import Albums from '@/app/components/main/Albums';
-import CurrentAlbum from './components/main/CurrentAlbum';
+import Profile from '@/app/components/main/sideBar/Profile';
+import Albums from '@/app/components/main/sideBar/Albums';
+import CurrentAlbum from './components/main/currentAlbum/CurrentAlbum';
 const page = () => {
   return (
     <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100dvh' }}>

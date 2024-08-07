@@ -1,5 +1,5 @@
 import React from 'react';
-import DarkBlurBg from '../common/DarkBlurBg';
+import DarkBlurBg from '../../common/DarkBlurBg';
 import { Box, Typography, IconButton, Chip, Button, Avatar } from '@mui/material';
 import Image from 'next/image';
 import AlbumIcon from '@mui/icons-material/Album';

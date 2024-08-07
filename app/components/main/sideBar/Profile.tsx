@@ -1,5 +1,5 @@
 import React from 'react';
-import DarkBlurBg from '../common/DarkBlurBg';
+import DarkBlurBg from '../../common/DarkBlurBg';
 import { Box, Avatar, Typography } from '@mui/material';
 import Image from 'next/image';
 import pfp from '@/app/assets/pfp.jpg'
