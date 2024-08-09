@@ -5,7 +5,9 @@ renaming assets
 font-family
 redesign: fontsize,fontfamily,colors and ...
 set font-size for icons
+button in button problem
 
 feat:
 when closing the main app it should be a giant music player instead of it
 banner can be slider
+more scroll effect

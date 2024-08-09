@@ -24,7 +24,7 @@ const page = () => {
 
           <Grid xs={6}>
             <CurrentAlbum />
-          </Grid>
+          </Grid> 
 
           <Grid xs={3} sx={{ overflow: 'auto', height: 1 }}>
             <Mix />
