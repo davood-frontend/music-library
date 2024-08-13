@@ -11,3 +11,4 @@ feat:
 when closing the main app it should be a giant music player instead of it
 banner can be slider
 more scroll effect
+make the data dynamic

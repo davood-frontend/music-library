@@ -9,7 +9,19 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10.5px);
   -webkit-backdrop-filter: blur(10.5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.blur-layer-action {
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .black-blur {
@@ -40,4 +52,12 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #6b6b6b;
+}
+
+.MuiSlider-thumb:is(:hover, .Mui-active) {
+  display: none;
+}
+
+.MuiSlider-thumb {
+  display: none;
 }
