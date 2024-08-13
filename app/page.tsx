@@ -15,7 +15,7 @@ const page = () => {
         <Image src={mainBG} alt='background picture' style={{ objectFit: 'cover', filter: 'brightness(90%) blur(2px)' }} fill />
       </Avatar>
       <Box sx={{ height: 600, width: 1200, borderTopRightRadius: 40, borderTopLeftRadius: 40 }} className='blur-layer'>
-        <Grid container rowSpacing={1} height={1} columnSpacing={2} sx={{ p: 3 }}>
+        <Grid container  height={1} columnSpacing={2} sx={{ px: 3,pt:3}}>
           <Grid xs={3} sx={{ display: 'flex', flexDirection: 'column' }}>
 
             <Profile />
@@ -30,7 +30,6 @@ const page = () => {
           <Grid xs={3} sx={{ overflow: 'auto', height: 1 }}>
             <Mix />
           </Grid>
-
         </Grid>
 
       </Box>

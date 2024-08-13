@@ -10,7 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import cover from '@/app/assets/albums/song-cover.jpg'
 const Albums = () => {
     return (
-        <DarkBlurBg sx={{ mt: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
+        <DarkBlurBg sx={{ my: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pt: 1 }}>
                 <Box sx={{ display: 'flex' }}>
                     <AlbumIcon sx={{ marginRight: 1, color: 'whiteSmoke' }} />

@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 const Mix = () => {
     return (
-        <DarkBlurBg>
+        <DarkBlurBg sx={{ mb: 2 }}>
             <Typography variant='subtitle2' >Billie Eilish Mix</Typography>
             <Box sx={{ mt: 1.5 }}>
                 <Avatar variant='rounded' sx={{ height: 250, width: 1, borderRadius: 4 }}>

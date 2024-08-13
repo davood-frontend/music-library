@@ -7,11 +7,11 @@ const Songs = () => {
 
 
     return (
-        <Box sx={{ px: 2, pt: 2, pb: 1, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ px: 2, pt: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
             <Typography>
                 Your Songs
             </Typography>
-            <Box sx={{ overflow: 'auto', flexGrow: 1, flexBasis: 0, mt: 1 }}>
+            <Box sx={{ overflow: 'auto', flexGrow: 1, flexBasis: 0, my: 1 }}>
                 {myAray.map((item, index) => <Song key={index} counter={index} />)}
             </Box>
         </Box>
