@@ -8,11 +8,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
-const Song = ({ counter }: { counter: number }) => {
-    const click = (e: MouseEvent) => {
-        console.log('clicked')
-    }
-
+const Song = ({ counter, data }: { counter: number, data: string }) => {
 
     const rippleRef = useRef<TouchRippleActions>()
 
@@ -45,7 +41,7 @@ const Song = ({ counter }: { counter: number }) => {
                 </Grid>
                 <Grid xs={5} sx={{ display: 'flex', justifyContent: 'start' }}>
                     <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
+                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>{data && data}</Typography>
                     </Box>
                 </Grid>
                 <Grid xs={2}>
