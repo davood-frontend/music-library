@@ -54,10 +54,21 @@
   background: #6b6b6b;
 }
 
-.MuiSlider-thumb:is(:hover, .Mui-active) {
+/* .action-slider .MuiSlider-thumb {
+  display: none; 
+}
+ */
+.action-slider .MuiSlider-thumb::before {
   display: none;
 }
 
-.MuiSlider-thumb {
-  display: none;
+.action-slider .MuiSlider-thumb.Mui-focusVisible,
+.action-slider .MuiSlider-thumb.Mui-active,
+.action-slider .MuiSlider-thumb.Mui-focusVisible::before,
+.action-slider .MuiSlider-thumb.Mui-active::before {
+  box-shadow: none;
+}
+
+.action-slider .MuiSlider-track {
+  border: none;
 }

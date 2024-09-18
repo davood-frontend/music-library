@@ -8,8 +8,10 @@ import Grid from '@mui/material/Unstable_Grid2'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
-const Song = ({ counter, data }: { counter: number, data: string }) => {
-
+import { music_type } from '@/app/constants/musics';
+import { useMainContext } from '@/app/context/mainContext';
+const Song = ({ counter, data }: { counter: number, data: music_type }) => {
+    const { setCurrentSong } = useMainContext()
     const rippleRef = useRef<TouchRippleActions>()
 
     //checks to see if the click was on the song itself or on a button on the song
@@ -17,6 +19,9 @@ const Song = ({ counter, data }: { counter: number, data: string }) => {
         if (rippleRef.current) {
             if (!event.target.className.baseVal) {
                 rippleRef.current.start(event);
+                setCurrentSong(data)
+                
+                
             }
         }
     };
@@ -36,16 +41,16 @@ const Song = ({ counter, data }: { counter: number, data: string }) => {
                 </Grid>
                 <Grid xs={1}>
                     <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
+                        <Image src={data.cover_url} fill style={{ objectFit: 'cover' }} alt='album cover' />
                     </Avatar>
                 </Grid>
                 <Grid xs={5} sx={{ display: 'flex', justifyContent: 'start' }}>
                     <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>{data && data}</Typography>
+                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>{data.name}</Typography>
                     </Box>
                 </Grid>
                 <Grid xs={2}>
-                    <Typography variant='subtitle2'>the living...</Typography>
+                    <Typography variant='subtitle2'>{data.artist.name}</Typography>
                 </Grid>
                 <Grid xs={1}>
                     <IconButton size='small'>
