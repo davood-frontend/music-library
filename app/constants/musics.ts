@@ -165,7 +165,7 @@ export const musics = [
         name: "Rasputin",
         artist: {
             id: "1",
-            name: "Boney m"
+            name: "Boney m."
         },
         album: {
             id: "7890ijkl",
@@ -305,7 +305,7 @@ export const musics = [
         name: "Metamorphosis",
         artist: {
             id: "1",
-            name: "INTERWORL"
+            name: "Interworld"
         },
         album: {
             id: "7890ijkl",
