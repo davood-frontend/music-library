@@ -3,14 +3,13 @@ import { Box, Typography, Button } from '@mui/material';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import bannerImage from '@/app/assets/banners/billie.png'
 import { bannerType } from '@/app/constants/banner-data';
 import Image from 'next/image';
 const numberFormatter = (number: number) => {
     let formattedNumber = number.toLocaleString()
     return formattedNumber
 }
-const Banner = ({ data }: { data: bannerType }) => {
+const Banner = ({ data, followHandler }: { data: bannerType, followHandler: (data: bannerType) => void }) => {
     return (
         <Box sx={{ height: 220, backgroundColor: data.backgroundColor, mt: 2.5, display: 'flex', position: 'relative', width: 1 }}>
             <Box sx={{ p: 3, zIndex: 1 }}>
@@ -25,7 +24,7 @@ const Banner = ({ data }: { data: bannerType }) => {
                 </Box>
                 <Box sx={{ mt: 3 }}>
                     <Button startIcon={<PlayArrowIcon />} variant='contained' color='info' sx={{ borderRadius: 8, px: 2, marginRight: 1.5, fontSize: 12, '& .MuiButton-startIcon': { marginRight: 0.5 }, fontWeight: 600 }} size='small'>Play</Button>
-                    <Button variant='outlined' color='info' sx={{ borderRadius: 8, px: 2, fontSize: 12, fontWeight: 600 }} size='small'>Follow</Button>
+                    <Button onClick={() => followHandler(data)} variant='contained' color={data.isFollowing ? 'secondary' : 'info'} sx={{ borderRadius: 8, px: 2, fontSize: 12, fontWeight: 600 }} size='small'>{data.isFollowing ? 'Following' : 'Follow'}</Button>
                 </Box>
             </Box>
             <Box sx={{ flexGrow: 1, flexBasis: 0, position: 'relative' }}>

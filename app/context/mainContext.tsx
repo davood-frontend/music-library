@@ -27,6 +27,9 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
             cover_url: 'https://gaming-project.storage.iran.liara.space/song-covers/after-dark.jpg',
         },
     )
+    const playCurrentBannerMusic = (singer: string) => {
+        
+    }
     return (
         <MainContext.Provider value={{ currentSong, setCurrentSong }}>
             {children}

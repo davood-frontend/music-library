@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 import { Box, IconButton } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBefore from '@mui/icons-material/NavigateBefore';
@@ -7,7 +7,7 @@ import { SwiperRef } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Banner from './Banner';
-import { bannerData } from '@/app/constants/banner-data';
+import { bannerData, bannerType } from '@/app/constants/banner-data';
 import { Autoplay } from 'swiper/modules';
 const Banners = () => {
     const sliderRef = useRef<SwiperRef>(null)
@@ -20,6 +20,16 @@ const Banners = () => {
         if (!sliderRef.current) return;
         sliderRef.current.swiper.slideNext();
     }, []);
+    const [banners, setBanners] = useState(bannerData)
+    const followHandler = (data: bannerType) => {
+        const clone = [...banners]
+        clone.forEach(item => {
+            if (item.title === data.title) {
+                item.isFollowing = !item.isFollowing
+            }
+        })
+        setBanners(clone)
+    }
     return (
         <>
             <Box sx={{ px: 1.5 }}>
@@ -31,9 +41,9 @@ const Banners = () => {
                 </IconButton>
             </Box>
             <Swiper spaceBetween={0} autoplay={{ delay: 3500, disableOnInteraction: false }} loop={true} ref={sliderRef} style={{ width: 'calc(100% + 0.3px)', overflow: 'visible', overflowX: 'clip' }}>
-                {bannerData.map((item, index) => (
+                {banners.map((item, index) => (
                     <SwiperSlide key={index} >
-                        <Banner data={item} />
+                        <Banner data={item} followHandler={followHandler} />
                     </SwiperSlide>
                 ))}
             </Swiper>

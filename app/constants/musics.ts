@@ -25,7 +25,7 @@ export const musics = [
         name: "After Dark",
         artist: {
             id: 1,
-            name: "mr kitty",
+            name: "Mr Kitty",
         },
         album: {
             id: "7890ijkl",
@@ -105,7 +105,7 @@ export const musics = [
         name: "Cupid",
         artist: {
             id: "1",
-            name: "FIFTY FIFTY"
+            name: "Fifty Fifty"
         },
         album: {
             id: "7890ijkl",
@@ -185,7 +185,7 @@ export const musics = [
         name: "Buid a bitch",
         artist: {
             id: "1",
-            name: "Bella poarch"
+            name: "Bella Poarch"
         },
         album: {
             id: "7890ijkl",

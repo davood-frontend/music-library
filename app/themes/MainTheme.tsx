@@ -7,6 +7,9 @@ const darkMode = createTheme({
         mode: 'dark',
         info: {
             main: '#F5F5F5'
+        },
+        secondary: {
+            main: '#141a33'
         }
     },
     typography: {
