@@ -7,7 +7,8 @@ import { SwiperRef } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Banner from './Banner';
-const arr = [1, 2, 3, 4]
+import { bannerData } from '@/app/constants/banner-data';
+import { Autoplay } from 'swiper/modules';
 const Banners = () => {
     const sliderRef = useRef<SwiperRef>(null)
     const handlePrev = useCallback(() => {
@@ -29,10 +30,10 @@ const Banners = () => {
                     <NavigateNextIcon sx={{ fontSize: 20 }} />
                 </IconButton>
             </Box>
-            <Swiper ref={sliderRef} className="mySwiper" style={{ width: '100%', overflow: 'visible', overflowX: 'clip' }}>
-                {arr.map(() => (
-                    <SwiperSlide >
-                        <Banner />
+            <Swiper spaceBetween={0} autoplay={{ delay: 3500, disableOnInteraction: false }} loop={true} ref={sliderRef} style={{ width: 'calc(100% + 0.3px)', overflow: 'visible', overflowX: 'clip' }}>
+                {bannerData.map((item, index) => (
+                    <SwiperSlide key={index} >
+                        <Banner data={item} />
                     </SwiperSlide>
                 ))}
             </Swiper>
