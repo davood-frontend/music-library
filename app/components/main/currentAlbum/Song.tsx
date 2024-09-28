@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef } from 'react';
 import { Box, IconButton, Typography, Avatar, Menu, MenuItem } from '@mui/material';
-import { TouchRippleProps, TouchRippleActions } from '@mui/material/ButtonBase/TouchRipple';
+import { TouchRippleActions } from '@mui/material/ButtonBase/TouchRipple';
 import Image from 'next/image';
 import Grid from '@mui/material/Unstable_Grid2'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -71,7 +71,6 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.stopPropagation()
         setAnchorEl(event.currentTarget);
     };
     const handleClose = (event: MouseEvent) => {
@@ -109,13 +108,11 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
                 </Grid>
                 <Grid xs={1}>
                     <IconButton size='small'
-                        id="basic-button"
                         onClick={handleClick}
                     >
                         <MoreHorizIcon className='inButton-icon' />
                     </IconButton>
                     <Menu
-                        id="basic-menu"
                         anchorEl={anchorEl}
                         open={open}
                         onClose={handleClose}

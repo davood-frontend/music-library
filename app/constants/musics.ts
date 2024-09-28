@@ -1,3 +1,4 @@
+import pp from '@/app/assets/banners/palaye-royale.jpg'
 export type music_type = {
     id: number,
     name: string,
@@ -501,5 +502,109 @@ export const musics = [
         cover_url: 'https://gaming-project.storage.iran.liara.space/song-covers/montero.jpg',
     },
 
+
+] as musics_type
+
+export const suggestions = [
+    {
+        id: 1,
+        name: "Yeah Right",
+        artist: {
+            id: 1,
+            name: "Joji",
+        },
+        album: {
+            id: "7890ijkl",
+            name: "Album Title",
+            release_date: "2023-01-01",
+            cover_image: "https://example.com/album_cover.jpg"
+        },
+        duration: 174,
+        // explicit: false,
+        // popularity: 85,
+        // preview_url: "https://example.com/preview.mp3",
+        song_url: 'https://gaming-project.storage.iran.liara.space/songs/yeah-right.mp3',
+        cover_url: 'https://gaming-project.storage.iran.liara.space/song-suggestions/joji.jpg',
+    },
+    {
+        id: 2,
+        name: "Feel Good",
+        artist: {
+            id: "1",
+            name: "Gorllaz"
+        },
+        album: {
+            id: "7890ijkl",
+            name: "Album Title",
+            release_date: "2023-01-01",
+            cover_image: "https://example.com/album_cover.jpg"
+        },
+        duration: 222,
+        // explicit: false,
+        // popularity: 85,
+        // preview_url: "https://example.com/preview.mp3",
+        song_url: 'https://gaming-project.storage.iran.liara.space/songs/feel-good.mp3',
+        cover_url: 'https://gaming-project.storage.iran.liara.space/song-suggestions/gorillaz.jpg',
+    },
+    {
+        id: 3,
+        name: "Solitary Man",
+        artist: {
+            id: "1",
+            name: "Johny Cash"
+        },
+        album: {
+            id: "7890ijkl",
+            name: "Album Title",
+            release_date: "2023-01-01",
+            cover_image: "https://example.com/album_cover.jpg"
+        },
+        duration: 143,
+        // explicit: false,
+        // popularity: 85,
+        // preview_url: "https://example.com/preview.mp3",
+        song_url: 'https://gaming-project.storage.iran.liara.space/songs/solitary-man.mp3',
+        cover_url: 'https://gaming-project.storage.iran.liara.space/song-suggestions/johny-cash.jpg',
+    },
+    {
+        id: 4,
+        name: "Lonely",
+        artist: {
+            id: "1",
+            name: "Palaye Royale"
+        },
+        album: {
+            id: "7890ijkl",
+            name: "Album Title",
+            release_date: "2023-01-01",
+            cover_image: "https://example.com/album_cover.jpg"
+        },
+        duration: 183,
+        // explicit: false,
+        // popularity: 85,
+        // preview_url: "https://example.com/preview.mp3",
+        song_url: 'https://gaming-project.storage.iran.liara.space/songs/lonely.mp3',
+        cover_url: 'https://gaming-project.storage.iran.liara.space/song-suggestions/palaye-royale.jpg',
+    },
+    {
+        id: 5,
+        name: "High",
+        artist: {
+            id: "1",
+            name: "Stephen Sanchez"
+        },
+        album: {
+            id: "7890ijkl",
+            name: "Album Title",
+            release_date: "2023-01-01",
+            cover_image: "https://example.com/album_cover.jpg"
+        },
+        duration: 161,
+        // explicit: false,
+        // popularity: 85,
+        // preview_url: "https://example.com/preview.mp3",
+        song_url: 'https://gaming-project.storage.iran.liara.space/songs/High.mp3',
+        cover_url: 'https://gaming-project.storage.iran.liara.space/song-suggestions/stephen.jpg',
+    },
 
 ] as musics_type
