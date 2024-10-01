@@ -1,27 +1,16 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
-
 import Song from './Song';
-const sampleArray = [] as string[]
-const first = ['my', 'your', 'his', 'her', 'thir', 'our']
-const second = ['happy', 'sad', 'emotional', 'nice', 'fucked up', 'disgusting', 'best', 'worst', 'sweet']
-const third = ['night', 'days', 'winter', 'moments', 'seconds', 'times', 'smiles', 'emotions', 'words', 'summer', 'sunsets']
 import { musics } from '@/app/constants/musics'
-const randomIndex = (words: string[]) => {
-    const Random = Math.floor(Math.random() * words.length)
-    return Random
-}
-for (let i = 0; i <= 120; i++) {
-    const firstRandomWord = first[randomIndex(first)]
-    const secondRandomWord = second[randomIndex(second)]
-    
-    const thirdRandomWord = third[randomIndex(third)]
-    const finalWord = firstRandomWord + ' ' + secondRandomWord + ' ' + thirdRandomWord
-    sampleArray.push(finalWord)
-}
+
 const Songs = () => {
 
+    // const finder = (id: number) => {
+    //     const clone = [...data]
+    //     const found = clone.findIndex(item => item.id === id)
+    //     clone[found].favorite = !clone[found].favorite
+    //     setData(clone)
+    // }
     return (
         <Box sx={{ px: 2, pt: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
             <Typography>

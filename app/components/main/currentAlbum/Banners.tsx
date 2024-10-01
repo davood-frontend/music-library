@@ -7,7 +7,7 @@ import { SwiperRef } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Banner from './Banner';
-import { bannerData, bannerType } from '@/app/constants/banner-data';
+import { bannerData } from '@/app/constants/banner-data';
 import { Autoplay } from 'swiper/modules';
 const Banners = () => {
     const sliderRef = useRef<SwiperRef>(null)
@@ -21,10 +21,10 @@ const Banners = () => {
         sliderRef.current.swiper.slideNext();
     }, []);
     const [banners, setBanners] = useState(bannerData)
-    const followHandler = (data: bannerType) => {
+    const followHandler = (data: string) => {
         const clone = [...banners]
         clone.forEach(item => {
-            if (item.title === data.title) {
+            if (item.title === data) {
                 item.isFollowing = !item.isFollowing
             }
         })

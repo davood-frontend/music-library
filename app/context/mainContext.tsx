@@ -25,11 +25,10 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
             duration: 257,
             song_url: 'https://gaming-project.storage.iran.liara.space/songs/Mr%20Kitty%20-%20After%20Dark%20%28%20GandomMusic.ir%20%29.mp3',
             cover_url: 'https://gaming-project.storage.iran.liara.space/song-covers/after-dark.jpg',
+            favorite: false,
         },
     )
-    const playCurrentBannerMusic = (singer: string) => {
-        
-    }
+
     return (
         <MainContext.Provider value={{ currentSong, setCurrentSong }}>
             {children}

@@ -10,6 +10,9 @@ const darkMode = createTheme({
         },
         secondary: {
             main: '#141a33'
+        },
+        error: {
+            main: '#ec644b'
         }
     },
     typography: {

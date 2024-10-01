@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DarkBlurBg from '../../common/DarkBlurBg';
 import { Box, Typography } from '@mui/material';
 import Song from './Song';
 import { suggestions } from '@/app/constants/musics'
 
 const Mix = () => {
+    
     return (
         <DarkBlurBg sx={{ mb: 2 }}>
             <Box sx={{ mb: 2 }}>

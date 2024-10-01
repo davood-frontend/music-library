@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Box, IconButton, Typography, Avatar, Menu, MenuItem } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -8,9 +8,9 @@ import { music_type } from '@/app/constants/musics';
 import { TouchRippleActions } from '@mui/material/ButtonBase/TouchRipple';
 import { useMainContext } from '@/app/context/mainContext';
 import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
 const Song = ({ data }: { data: music_type }) => {
-
+    const [isFavorite, setIsFavorite] = useState(data.favorite)
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -68,8 +68,8 @@ const Song = ({ data }: { data: music_type }) => {
                     <Typography variant='caption'>{data.artist.name}</Typography>
                 </Box>
                 <Box>
-                    <IconButton size='small'>
-                        <FavoriteBorderIcon />
+                    <IconButton size='small' onClick={() => setIsFavorite(!isFavorite)}>
+                        {isFavorite ? <FavoriteIcon color='error' /> : <FavoriteBorderIcon />}
                     </IconButton>
                     <IconButton size='small' onClick={handleClick}>
                         <MoreHorizIcon />

@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Box, IconButton, Typography, Avatar, Menu, MenuItem } from '@mui/material';
 import { TouchRippleActions } from '@mui/material/ButtonBase/TouchRipple';
 import Image from 'next/image';
@@ -9,14 +9,15 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
 import { music_type } from '@/app/constants/musics';
 import { useMainContext } from '@/app/context/mainContext';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 const Song = ({ counter, data }: { counter: number, data: music_type }) => {
     const { setCurrentSong } = useMainContext()
     const rippleRef = useRef<TouchRippleActions>()
+    const [isFavorite, setIsFavorite] = useState(data.favorite)
 
     //checks to see if the click was on the song itself or on a button on the song
     const handleMouseDown = (event: any) => {
 
-        console.log(event.target.tagName)
         if (event.target.tagName === 'svg') {
             return
         }
@@ -46,7 +47,6 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
             rippleRef.current.stop();
         }
     };
-    window.addEventListener('mouseup', handleMouseUp)
 
     const numberFormatter = (number: number) => {
         let minutes = Math.floor(number / 60)
@@ -72,11 +72,22 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
+        console.log(data)
     };
     const handleClose = (event: MouseEvent) => {
         event.stopPropagation()
         setAnchorEl(null);
     };
+
+
+
+    useEffect(() => {
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, []);
+
 
     return (
         <Box sx={{ width: 1, display: 'flex', justifyContent: 'start', alignItems: 'center', borderRadius: 0.8, p: 1, overflow: 'hidden', cursor: 'pointer', position: 'relative', }} onMouseDown={handleMouseDown}>
@@ -99,8 +110,8 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
                     <Typography variant='subtitle2'>{nameFormatter(data.artist.name)}</Typography>
                 </Grid>
                 <Grid xs={1}>
-                    <IconButton size='small'>
-                        <FavoriteBorderIcon className='inButton-icon' />
+                    <IconButton size='small' onClick={() => setIsFavorite(!isFavorite)}>
+                        {isFavorite ? <FavoriteIcon color='error' /> : <FavoriteBorderIcon />}
                     </IconButton>
                 </Grid>
                 <Grid xs={1}>
