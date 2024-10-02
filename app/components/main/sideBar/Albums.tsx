@@ -1,20 +1,25 @@
+'use client'
 import React from 'react';
 import DarkBlurBg from '../../common/DarkBlurBg';
 import { Box, Typography, IconButton, Chip, Button, Avatar } from '@mui/material';
-import Image from 'next/image';
 import AlbumIcon from '@mui/icons-material/Album';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
-import cover from '@/app/assets/albums/song-cover.jpg'
+import { albums, allSongs } from '@/app/constants/albums-data';
+import AppsIcon from '@mui/icons-material/Apps';
+import Album from './Album';
+import { useMainContext } from '@/app/context/mainContext';
+import { musics } from '@/app/constants/musics';
 const Albums = () => {
+    const { setCurrentAlbum, currentAlbum } = useMainContext()
     return (
         <DarkBlurBg sx={{ my: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pt: 1 }}>
                 <Box sx={{ display: 'flex' }}>
                     <AlbumIcon sx={{ marginRight: 1, color: 'whiteSmoke' }} />
-                    <Typography>Your album</Typography>
+                    <Typography></Typography>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
                     <IconButton size='small'>
@@ -39,67 +44,16 @@ const Albums = () => {
                 </Box>
             </Box>
             <Box sx={{ mt: 1, mb: 1, flexGrow: 1, flexBasis: 0, overflow: 'auto' }}>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
+                {albums.map((item, index) => (
+                    <Album data={item} key={index} />
+                ))}
+                <Box sx={{ display: 'flex', mt: 2, cursor: 'pointer' }} onClick={() => setCurrentAlbum(allSongs)}>
+                    <Box sx={{ width: 40, textAlign: 'center' }}>
+                        <AppsIcon sx={{ color: 'whiteSmoke', fontSize: 35 }} />
                     </Box>
-                </Box>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
                     <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
-                    </Box>
-                </Box>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
-                    </Box>
-                </Box>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
-                    </Box>
-                </Box>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
-                    </Box>
-                </Box>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
-                    </Box>
-                </Box>
-                <Box sx={{ display: 'flex', mt: 2 }}>
-                    <Avatar variant='rounded'>
-                        <Image src={cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
-                    </Avatar>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>My happy melodies</Typography>
-                        <Typography variant='caption'>morning</Typography>
+                        <Typography variant='subtitle2' sx={{ fontSize: 13 }}>All songs</Typography>
+                        <Typography variant='caption'></Typography>
                     </Box>
                 </Box>
 

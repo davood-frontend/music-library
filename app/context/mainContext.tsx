@@ -1,13 +1,16 @@
 'use client'
 import React, { createContext, useState, useContext } from "react";
+import { music_type, musics, musics_type } from "../constants/musics";
+import { albumType, allSongs } from "../constants/albums-data";
 type contextType = {
     currentSong: music_type,
-    setCurrentSong: React.Dispatch<React.SetStateAction<music_type>>
-
+    setCurrentSong: React.Dispatch<React.SetStateAction<music_type>>,
+    currentAlbum: albumType,
+    setCurrentAlbum: React.Dispatch<React.SetStateAction<albumType>>,
 }
 export const MainContext = createContext<contextType | null>(null)
-import { music_type } from "../constants/musics";
 export const ContextProvider = ({ children }: { children: React.ReactNode }) => {
+    const [currentAlbum, setCurrentAlbum] = useState(allSongs)
     const [currentSong, setCurrentSong] = useState<music_type>(
         {
             id: 1,
@@ -30,7 +33,7 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
     )
 
     return (
-        <MainContext.Provider value={{ currentSong, setCurrentSong }}>
+        <MainContext.Provider value={{ currentSong, setCurrentSong, currentAlbum, setCurrentAlbum }}>
             {children}
         </MainContext.Provider>
     )

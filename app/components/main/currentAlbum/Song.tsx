@@ -14,7 +14,7 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
     const { setCurrentSong } = useMainContext()
     const rippleRef = useRef<TouchRippleActions>()
     const [isFavorite, setIsFavorite] = useState(data.favorite)
-
+   
     //checks to see if the click was on the song itself or on a button on the song
     const handleMouseDown = (event: any) => {
 

@@ -13,7 +13,7 @@ const Profile = () => {
                 </Avatar>
                 <Box>
                     <Typography variant='subtitle2' color='textPrimary'>John doe</Typography>
-                    <Typography variant='caption' color='textPrimary'>Front-end dev</Typography>
+                    <Typography variant='caption' color='textPrimary'>Pro membership</Typography>
                 </Box>
             </Box>
         </DarkBlurBg>
