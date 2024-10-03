@@ -7,10 +7,14 @@ type contextType = {
     setCurrentSong: React.Dispatch<React.SetStateAction<music_type>>,
     currentAlbum: albumType,
     setCurrentAlbum: React.Dispatch<React.SetStateAction<albumType>>,
+    drawerOpen: boolean,
+    setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>,
+
 }
 export const MainContext = createContext<contextType | null>(null)
 export const ContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [currentAlbum, setCurrentAlbum] = useState(allSongs)
+    const [drawerOpen, setDrawerOpen] = useState(false)
     const [currentSong, setCurrentSong] = useState<music_type>(
         {
             id: 1,
@@ -33,7 +37,7 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
     )
 
     return (
-        <MainContext.Provider value={{ currentSong, setCurrentSong, currentAlbum, setCurrentAlbum }}>
+        <MainContext.Provider value={{ currentSong, setCurrentSong, currentAlbum, setCurrentAlbum, drawerOpen, setDrawerOpen }}>
             {children}
         </MainContext.Provider>
     )

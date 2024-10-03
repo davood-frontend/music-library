@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import DarkBlurBg from '../../common/DarkBlurBg';
-import { Box, Typography, IconButton, Chip, Button, Avatar } from '@mui/material';
+import { Box, Typography, IconButton, Chip, Button } from '@mui/material';
 import AlbumIcon from '@mui/icons-material/Album';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -11,26 +11,13 @@ import { albums, allSongs } from '@/app/constants/albums-data';
 import AppsIcon from '@mui/icons-material/Apps';
 import Album from './Album';
 import { useMainContext } from '@/app/context/mainContext';
-import { musics } from '@/app/constants/musics';
-const Albums = () => {
-    const { setCurrentAlbum, currentAlbum } = useMainContext()
+import Header from './Header';
+import DrawerHeader from './DrawerHeader';
+const Albums = ({ inDrawer }: { inDrawer: boolean }) => {
+    const { setDrawerOpen, setCurrentAlbum } = useMainContext()
     return (
-        <DarkBlurBg sx={{ my: 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pt: 1 }}>
-                <Box sx={{ display: 'flex' }}>
-                    <AlbumIcon sx={{ marginRight: 1, color: 'whiteSmoke' }} />
-                    <Typography></Typography>
-                </Box>
-                <Box sx={{ display: 'flex' }}>
-                    <IconButton size='small'>
-                        <AddIcon />
-                    </IconButton>
-
-                    <IconButton size='small'>
-                        <ArrowForwardIcon />
-                    </IconButton>
-                </Box>
-            </Box>
+        <DarkBlurBg sx={{ my: inDrawer ? 0 : 2, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
+            {!inDrawer ? <Header /> : <DrawerHeader />}
             <Box sx={{ mt: 1.5 }}>
                 <Chip label='Playlist' sx={{ backgroundColor: 'rgba(143, 143, 143,0.6)', px: 0.5, marginRight: 1 }} size='small' />
                 <Chip label='Listening' sx={{ backgroundColor: 'rgba(143, 143, 143,0.6)', px: 0.5, marginRight: 1 }} size='small' />
