@@ -14,7 +14,7 @@ import DrawerHeader from './DrawerHeader';
 const Albums = ({ inDrawer }: { inDrawer?: boolean }) => {
     const { setCurrentAlbum } = useMainContext()
     return (
-        <DarkBlurBg sx={{ my: inDrawer ? 0 : 2, flexGrow: 1, flexBasis: 0, display: { xs: inDrawer ? 'flex' : 'none', md: 'flex' }, flexDirection: 'column', paddingRight: { xs: 0.5, lg: 1.5 }, paddingLeft: { xs: 1.5, md: 1, lg: 1.5 } }}>
+        <DarkBlurBg disabledRadius={inDrawer} sx={{ my: inDrawer ? 0 : 2, flexGrow: 1, flexBasis: 0, display: { xs: inDrawer ? 'flex' : 'none', md: 'flex' }, flexDirection: 'column', paddingRight: { xs: 0.5, lg: 1.5 }, paddingLeft: { xs: 1.5, md: 1, lg: 1.5 } }}>
             {!inDrawer ? <Header /> : <DrawerHeader />}
             <Box sx={{ mt: 1.5 }}>
                 <Chip label='Playlist' sx={{ backgroundColor: 'rgba(143, 143, 143,0.6)', px: 0.5, marginRight: 1 }} size='small' />

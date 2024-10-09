@@ -10,7 +10,7 @@ const Profile = ({ inDrawer }: { inDrawer?: boolean }) => {
     const { setDrawerOpen } = useMainContext()
 
     return (
-        <DarkBlurBg sx={{display: { xs: inDrawer ? 'flex' : 'none', md: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
+        <DarkBlurBg disabledRadius={inDrawer} sx={{display: { xs: inDrawer ? 'flex' : 'none', md: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', }}>
                 <Avatar sx={{ height: 50, width: 50, marginRight: 2 }}>
                     <Image src={pfp} alt='background picture' style={{ objectFit: 'cover' }} fill />
