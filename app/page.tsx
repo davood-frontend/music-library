@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Avatar, Drawer } from '@mui/material';
-import mainBG from '@/app/assets/main-bg.jpg'
+import mainBG from '@/app/assets/mainBg.jpg'
 import Image from 'next/image';
 import Grid from '@mui/material/Unstable_Grid2';
 import Profile from '@/app/components/main/sideBar/Profile';
