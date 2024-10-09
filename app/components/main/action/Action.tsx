@@ -144,12 +144,12 @@ const Action = () => {
                         <LaptopIcon sx={{ fontSize: 18 }} />
                     </IconButton>
                 </Box>
-                <Box sx={{ display: { xs: 'flex', lg: 'none' }, justifyContent: { xs: 'end', sm: 'center' } }}>
-                    <IconButton>
-                        <FavoriteIcon sx={{ fontSize: 18 }} />
+                <Box sx={{ display: { xs: 'flex', lg: 'none' }, justifyContent: { xs: 'end', sm: 'center' }, columnGap: { xs: 1, sm: 0 } }}>
+                    <IconButton size='small'>
+                        <FavoriteBorderIcon />
                     </IconButton>
-                    <IconButton>
-                        <MoreVertIcon sx={{ fontSize: 18 }} />
+                    <IconButton size='small'>
+                        <MoreVertIcon />
                     </IconButton>
 
                 </Box>
