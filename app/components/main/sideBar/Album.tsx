@@ -5,9 +5,13 @@ import Image from 'next/image';
 import { albumType } from '@/app/constants/albums-data';
 import { useMainContext } from '@/app/context/mainContext';
 const Album = ({ data }: { data: albumType }) => {
-    const { setCurrentAlbum } = useMainContext()
+    const { setCurrentAlbum, setDrawerOpen } = useMainContext()
+    const handleClick = () => {
+        setCurrentAlbum(data)
+        setDrawerOpen(false)
+    }
     return (
-        <Box sx={{ display: 'flex', mt: 2, cursor: 'pointer' }} onClick={() => setCurrentAlbum(data)}>
+        <Box sx={{ display: 'flex', mt: 2, cursor: 'pointer' }} onClick={handleClick}>
             <Avatar variant='rounded'>
                 <Image src={data.cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
             </Avatar>

@@ -12,7 +12,11 @@ import { useMainContext } from '@/app/context/mainContext';
 import Header from './Header';
 import DrawerHeader from './DrawerHeader';
 const Albums = ({ inDrawer }: { inDrawer?: boolean }) => {
-    const { setCurrentAlbum } = useMainContext()
+    const { setCurrentAlbum, setDrawerOpen } = useMainContext()
+    const handleClick = (type: string) => {
+        type === 'all' ? setCurrentAlbum(allSongs) : setCurrentAlbum(SuggestedSongs)
+        setDrawerOpen(false)
+    }
     return (
         <DarkBlurBg disabledRadius={inDrawer} sx={{ my: inDrawer ? 0 : 2, flexGrow: 1, flexBasis: 0, display: { xs: inDrawer ? 'flex' : 'none', md: 'flex' }, flexDirection: 'column', paddingRight: { xs: 0.5, lg: 1.5 }, paddingLeft: { xs: 2, lg: 1.5 } }}>
             {!inDrawer ? <Header /> : <DrawerHeader />}
@@ -32,7 +36,7 @@ const Albums = ({ inDrawer }: { inDrawer?: boolean }) => {
                 {albums.map((item, index) => (
                     <Album data={item} key={index} />
                 ))}
-                <Box sx={{ display: 'flex', mt: 2, cursor: 'pointer' }} onClick={() => setCurrentAlbum(allSongs)}>
+                <Box sx={{ display: 'flex', mt: 2, cursor: 'pointer' }} onClick={() => handleClick('all')}>
                     <Box sx={{ width: 40, textAlign: 'center' }}>
                         <AppsIcon sx={{ color: 'whiteSmoke', fontSize: 35 }} />
                     </Box>
@@ -41,7 +45,7 @@ const Albums = ({ inDrawer }: { inDrawer?: boolean }) => {
                         <Typography variant='caption'></Typography>
                     </Box>
                 </Box>
-                <Box sx={{ display: { xs: 'flex', sm: 'none' }, mt: 2, cursor: 'pointer' }} onClick={() => setCurrentAlbum(SuggestedSongs)}>
+                <Box sx={{ display: { xs: 'flex', sm: 'none' }, mt: 2, cursor: 'pointer' }} onClick={() => handleClick('suggested')}>
                     <Box sx={{ width: 40, textAlign: 'center' }}>
                         <GraphicEqIcon sx={{ color: 'whiteSmoke', fontSize: 35 }} />
                     </Box>
