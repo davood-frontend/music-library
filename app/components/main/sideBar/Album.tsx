@@ -11,7 +11,7 @@ const Album = ({ data }: { data: albumType }) => {
             <Avatar variant='rounded'>
                 <Image src={data.cover} fill style={{ objectFit: 'cover' }} alt='album cover' />
             </Avatar>
-            <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <Box sx={{ marginLeft: { xs: 1, lg: 1.5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <Typography variant='subtitle2' sx={{ fontSize: 13 }}>{data.title}</Typography>
                 <Typography variant='caption'>{data.genre}</Typography>
             </Box>

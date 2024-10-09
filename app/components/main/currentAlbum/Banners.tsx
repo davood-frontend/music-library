@@ -9,7 +9,15 @@ import 'swiper/css';
 import Banner from './Banner';
 import { bannerData } from '@/app/constants/banner-data';
 import { Autoplay } from 'swiper/modules';
+import MenuIcon from '@mui/icons-material/Menu';
+import ResponsiveIcon from '../../common/ResponsiveIcon';
+import { useMainContext } from '@/app/context/mainContext';
+import { useTheme } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
 const Banners = () => {
+    const theme = useTheme()
+    const smallerThanMd = useMediaQuery(theme.breakpoints.down('md'))
+    const { setDrawerOpen } = useMainContext()
     const sliderRef = useRef<SwiperRef>(null)
     const handlePrev = useCallback(() => {
         if (!sliderRef.current) return;
@@ -33,12 +41,18 @@ const Banners = () => {
     return (
         <>
             <Box sx={{ px: 1.5 }}>
-                <IconButton size='small' sx={{ backgroundColor: 'rgba(143, 143, 143,0.3)', marginRight: 1 }} onClick={handlePrev} >
-                    <NavigateBefore sx={{ fontSize: 20 }} />
+                <IconButton onClick={() => setDrawerOpen(true)} sx={{ display: smallerThanMd ? '' : 'none' }}>
+                    <ResponsiveIcon Icon={MenuIcon} />
                 </IconButton>
-                <IconButton size='small' sx={{ backgroundColor: 'rgba(143, 143, 143,0.3)' }} onClick={handleNext} >
-                    <NavigateNextIcon sx={{ fontSize: 20 }} />
-                </IconButton>
+                <Box sx={{ display: smallerThanMd ? 'none' : 'block' }}>
+                    <IconButton size='small' sx={{ backgroundColor: 'rgba(143, 143, 143,0.3)', marginRight: 1 }} onClick={handlePrev} >
+                        <NavigateBefore sx={{ fontSize: 20 }} />
+                    </IconButton>
+                    <IconButton size='small' sx={{ backgroundColor: 'rgba(143, 143, 143,0.3)' }} onClick={handleNext} >
+                        <NavigateNextIcon sx={{ fontSize: 20 }} />
+                    </IconButton>
+                </Box>
+
             </Box>
             <Swiper spaceBetween={0} autoplay={{ delay: 3500, disableOnInteraction: false }} loop={true} ref={sliderRef} style={{ width: 'calc(100% + 0.3px)', overflow: 'visible', overflowX: 'clip' }}>
                 {banners.map((item, index) => (
@@ -47,7 +61,18 @@ const Banners = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-
+            <Box position='relative' sx={{ display: smallerThanMd ? 'block' : 'none' }}>
+                <Box sx={{ position: 'absolute', top: 0, left: 0, width: 1, height: 1, display: 'flex', justifyContent: 'end', p: 1.2 }}>
+                    <Box>
+                        <IconButton size='small' sx={{ backgroundColor: 'rgba(143, 143, 143,0.3)', marginRight: 1 }} onClick={handlePrev} >
+                            <NavigateBefore sx={{ fontSize: 20 }} />
+                        </IconButton>
+                        <IconButton size='small' sx={{ backgroundColor: 'rgba(143, 143, 143,0.3)' }} onClick={handleNext} >
+                            <NavigateNextIcon sx={{ fontSize: 20 }} />
+                        </IconButton>
+                    </Box>
+                </Box>
+            </Box>
 
         </>
     );

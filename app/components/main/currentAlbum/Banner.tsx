@@ -11,8 +11,8 @@ const numberFormatter = (number: number) => {
 }
 const Banner = ({ data, followHandler }: { data: bannerType, followHandler: (data: string) => void }) => {
     return (
-        <Box sx={{ height: 220, backgroundColor: data.backgroundColor, mt: 2.5, display: 'flex', position: 'relative', width: 1 }}>
-            <Box sx={{ p: 3, zIndex: 1 }}>
+        <Box sx={{ height: { xs: 195, lg: 220 }, backgroundColor: data.backgroundColor, mt: 2.5, display: 'flex', position: 'relative', width: 1 }}>
+            <Box sx={{ p: { xs: 2, lg: 3 }, zIndex: 1 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <VerifiedIcon sx={{ fontSize: 17, marginRight: 0.8 }} />
                     <Typography variant='caption' color='black'>Verified Account</Typography>
@@ -23,12 +23,14 @@ const Banner = ({ data, followHandler }: { data: bannerType, followHandler: (dat
                     <Typography variant='caption' color='black' sx={{ marginLeft: 1, fontWeight: 600, mt: 0.3 }}>{numberFormatter(data.monthlyListeners)} Monthly listener</Typography>
                 </Box>
                 <Box sx={{ mt: 3 }}>
-                    <Button startIcon={<PlayArrowIcon />} variant='contained' color='info' sx={{ borderRadius: 8, px: 2, marginRight: 1.5, fontSize: 12, '& .MuiButton-startIcon': { marginRight: 0.5 }, fontWeight: 600 }} size='small'>Play</Button>
-                    <Button onClick={() => followHandler(data.title)} variant='contained' color={data.isFollowing ? 'secondary' : 'info'} sx={{ borderRadius: 8, px: 2, fontSize: 12, fontWeight: 600 }} size='small'>{data.isFollowing ? 'Following' : 'Follow'}</Button>
+                    <Button startIcon={<PlayArrowIcon />} variant='contained' color='info' sx={{ borderRadius: 8, px: 2, marginRight: 1.5, fontSize: 11, '& .MuiButton-startIcon': { marginRight: 0.5 }, fontWeight: 600 }} size='small'>Play</Button>
+                    <Button onClick={() => followHandler(data.title)} variant='contained' color={data.isFollowing ? 'secondary' : 'info'} sx={{ borderRadius: 8, px: 2, fontSize: 11, fontWeight: 600 }} size='small'>{data.isFollowing ? 'Following' : 'Follow'}</Button>
                 </Box>
             </Box>
             <Box sx={{ flexGrow: 1, flexBasis: 0, position: 'relative' }}>
-                <Image src={data.img} alt='singer' style={{ objectFit: 'contain', position: 'absolute', bottom: 0, height: '250px', right: -50, width: '100%' }} />
+                <Box sx={{ position: 'absolute', bottom: 0, height: { xs: 225, lg: 250 }, width: '100%', display: 'flex', justifyContent: 'end', paddingRight: { xs: 0, lg: 2 } }}>
+                    <Image src={data.img} alt='singer' style={{ height: '100%', width: 'auto' }} />
+                </Box>
             </Box>
             <Box sx={{ position: 'absolute', bottom: 0, right: 0, width: 1, height: '55%', background: `linear-gradient(to top, ${data.backgroundShadow}, rgba(16, 24, 32, 0))`, zIndex: 0 }} />
         </Box>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Box, IconButton, Typography, Avatar, Menu, MenuItem } from '@mui/material';
 import { TouchRippleActions } from '@mui/material/ButtonBase/TouchRipple';
 import Image from 'next/image';
@@ -10,11 +10,17 @@ import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
 import { music_type } from '@/app/constants/musics';
 import { useMainContext } from '@/app/context/mainContext';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useTheme } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
+import ResponsiveIcon from '../../common/ResponsiveIcon';
 const Song = ({ counter, data }: { counter: number, data: music_type }) => {
+    const theme = useTheme()
+    const smallerThanLg = useMediaQuery(theme.breakpoints.down('lg'))
+    const smallerThanSm = useMediaQuery(theme.breakpoints.down('sm'))
     const { setCurrentSong } = useMainContext()
     const rippleRef = useRef<TouchRippleActions>()
     const [isFavorite, setIsFavorite] = useState(data.favorite)
-   
+
     //checks to see if the click was on the song itself or on a button on the song
     const handleMouseDown = (event: any) => {
 
@@ -53,16 +59,28 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
         let seconds = number - (minutes * 60)
         return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`
     }
-    const nameFormatter = (data: String) => {
-        let newString = data.slice(0, 8)
-        if (data.length > 8) {
+    const singerNameFormatter = (data: String) => {
+        let conditionalNumber: number;
+        if (smallerThanLg) {
+            conditionalNumber = 5
+        } else {
+            conditionalNumber = 8
+        }
+        let newString = data.slice(0, conditionalNumber)
+        if (data.length > conditionalNumber) {
             newString += '...'
         }
         return newString
     }
     const songNameFormatter = (data: String) => {
-        let newString = data.slice(0, 16)
-        if (data.length > 16) {
+        let conditionalNumber: number;
+        if (smallerThanSm) {
+            conditionalNumber = 10
+        } else {
+            conditionalNumber = 16
+        }
+        let newString = data.slice(0, conditionalNumber)
+        if (data.length > conditionalNumber) {
             newString += '...'
         }
         return newString
@@ -90,38 +108,38 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
 
 
     return (
-        <Box sx={{ width: 1, display: 'flex', justifyContent: 'start', alignItems: 'center', borderRadius: 0.8, p: 1, overflow: 'hidden', cursor: 'pointer', position: 'relative', }} onMouseDown={handleMouseDown}>
+        <Box sx={{ width: 1, display: 'flex', justifyContent: 'start', alignItems: 'center', borderRadius: 0.8, p: 1, paddingLeft: 0, overflow: 'hidden', cursor: 'pointer', position: 'relative', }} onMouseDown={handleMouseDown}>
             <TouchRipple ref={rippleRef} />
             <Grid container sx={{ alignItems: 'center', width: 1 }}>
                 <Grid xs={1}>
-                    <Typography sx={{ textAlign: counter < 99 ? 'center' : 'start' }}>{counter + 1}</Typography>
+                    <Typography sx={{ textAlign: counter < 99 ? 'center' : 'start' }} variant='subtitle2'>{counter + 1}</Typography>
                 </Grid>
                 <Grid xs={1}>
                     <Avatar variant='rounded'>
                         <Image src={data.cover_url} fill style={{ objectFit: 'cover' }} alt='album cover' />
                     </Avatar>
                 </Grid>
-                <Grid xs={5} sx={{ display: 'flex', justifyContent: 'start' }}>
-                    <Box sx={{ marginLeft: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <Grid xs={4.5} >
+                    <Box sx={{ marginLeft: { xs: 2.5, md: 1.5 } }}>
                         <Typography variant='subtitle2' sx={{ fontSize: 13 }}>{songNameFormatter(data.name)}</Typography>
                     </Box>
                 </Grid>
                 <Grid xs={2}>
-                    <Typography variant='subtitle2'>{nameFormatter(data.artist.name)}</Typography>
+                    <Typography variant='subtitle2'>{singerNameFormatter(data.artist.name)}</Typography>
                 </Grid>
                 <Grid xs={1}>
                     <IconButton size='small' onClick={() => setIsFavorite(!isFavorite)}>
-                        {isFavorite ? <FavoriteIcon color='error' /> : <FavoriteBorderIcon />}
+                        {isFavorite ? <ResponsiveIcon Icon={FavoriteIcon} color='error' /> : <ResponsiveIcon Icon={FavoriteBorderIcon} />}
                     </IconButton>
                 </Grid>
-                <Grid xs={1}>
+                <Grid xs={1.5} textAlign='center'>
                     <Typography variant='subtitle2'>{numberFormatter(data.duration)}</Typography>
                 </Grid>
                 <Grid xs={1}>
                     <IconButton size='small'
                         onClick={handleClick}
                     >
-                        <MoreHorizIcon className='inButton-icon' />
+                        <ResponsiveIcon Icon={MoreHorizIcon} className='inButton-icon' />
                     </IconButton>
                     <Menu
                         anchorEl={anchorEl}

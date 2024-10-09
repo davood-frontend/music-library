@@ -1,4 +1,4 @@
-import { musics } from "./musics";
+import { musics, suggestions } from "./musics";
 import cloud from '@/app/assets/albums/cloud.jpg'
 import chinees from '@/app/assets/albums/chinees.jpg'
 import bridge from '@/app/assets/albums/bridge.jpg'
@@ -56,6 +56,12 @@ export const albums = [
 export const allSongs = {
     title: 'All songs',
     musics: musics,
+    cover: lightning,
+    genre: ''
+} as albumType
+export const SuggestedSongs = {
+    title: 'Suggested songs',
+    musics: suggestions,
     cover: lightning,
     genre: ''
 } as albumType

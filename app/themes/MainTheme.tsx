@@ -22,6 +22,42 @@ const darkMode = createTheme({
     },
 
 })
+darkMode.typography.body1 = {
+    fontSize: '16px',
+    color: 'whitesmoke',
+    fontWeight: '400',
+    '@media (max-width:1200px)': {
+        fontSize: '14px',
+    },
+
+}
+darkMode.typography.subtitle2 = {
+    fontSize: '15px',
+    color: 'whitesmoke',
+    fontWeight: '300',
+    '@media (max-width:1200px)': {
+        fontSize: '13px',
+    },
+
+}
+darkMode.typography.caption = {
+    fontSize: 12,
+    color: 'whitesmoke',
+    fontWeight: '300',
+    '@media (max-width:1200px)': {
+        fontSize: '11px',
+    },
+
+}
+darkMode.typography.h4 = {
+    fontSize: 34,
+    color: 'whitesmoke',
+    fontWeight: '300',
+    '@media (max-width:1200px)': {
+        fontSize: 30,
+    },
+
+}
 
 export const MainTheme = ({ children }: { children: React.ReactNode }) => {
     return (
