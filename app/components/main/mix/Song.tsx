@@ -1,6 +1,6 @@
 'use client'
-import React, { useRef, useState } from 'react';
-import { Box, IconButton, Typography, Avatar, Menu, MenuItem, SvgIconTypeMap } from '@mui/material';
+import React, { useRef, useState, useEffect } from 'react';
+import { Box, IconButton, Typography, Avatar, Menu, MenuItem } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Image from 'next/image';
@@ -26,7 +26,6 @@ const Song = ({ data }: { data: music_type }) => {
             rippleRef.current.stop();
         }
     };
-    window.addEventListener('mouseup', handleMouseUp)
 
     const { setCurrentSong } = useMainContext()
     const rippleRef = useRef<TouchRippleActions>()
@@ -56,6 +55,13 @@ const Song = ({ data }: { data: music_type }) => {
             setCurrentSong(data)
         }
     };
+    useEffect(() => {
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, []);
+
     return (
         <Box sx={{ cursor: 'pointer', position: 'relative', borderRadius: 1, py: 1.5 }} onMouseDown={handleMouseDown}>
             <TouchRipple ref={rippleRef} />
