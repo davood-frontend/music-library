@@ -107,7 +107,7 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
 
 
     return (
-        <Box sx={{ width: 1, display: 'flex', justifyContent: 'start', alignItems: 'center', borderRadius: 0.8, p: 1, paddingLeft: 0, overflow: 'hidden', cursor: 'pointer', position: 'relative', }} onMouseDown={handleMouseDown}>
+        <Box sx={{ width: 1, display: 'flex', justifyContent: 'start', alignItems: 'center', borderRadius: 0.8, p: 1, paddingLeft: 0, overflow: 'hidden', cursor: {sm:'pointer'}, position: 'relative', }} onMouseDown={handleMouseDown}>
             <TouchRipple ref={rippleRef} />
             <Grid container sx={{ alignItems: 'center', width: 1 }}>
                 <Grid xs={1}>

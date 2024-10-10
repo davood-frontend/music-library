@@ -71,22 +71,22 @@ const Action = () => {
                 <SongInfo />
             </Grid>
 
-            <Grid order={{ xs: 2, sm: 1 }} xs={12} sm={7.5} md={8.5} lg={7} sx={{ mt: { xs: 1.5, sm: 0 } }}>
+            <Grid order={{ xs: 2, sm: 1 }} xs={12} sm={7.5} md={8.5} lg={7} sx={{ mt: { xs: 0.5, sm: 0 },pb:1 }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', order: { xs: 2, sm: 1 } }}>
-                        <IconButton disableRipple sx={mode === 'shuffle' ? { border: '1px solid white' } : { pb: 0 }} onClick={() => setMode('shuffle')}>
+                        <IconButton disableRipple sx={mode === 'shuffle' ? { border: '1px solid white' } : { py: { xs: 0, sm: 1 }, pb: 0, }} onClick={() => setMode('shuffle')}>
                             <ShuffleIcon sx={{ fontSize: 16 }} />
                         </IconButton>
-                        <IconButton disableRipple sx={{ pb: 0 }}>
+                        <IconButton disableRipple sx={{ py: { xs: 0, sm: 1 }, pb: 0, }}>
                             <SkipPreviousIcon sx={{ fontSize: 25 }} />
                         </IconButton>
-                        <IconButton sx={{ pb: 0 }} onClick={handlePlayPause} disableRipple>
+                        <IconButton sx={{ py: { xs: 0, sm: 1 }, pb: 0, }} onClick={handlePlayPause} disableRipple>
                             {paused ? <PlayCircleIcon sx={{ fontSize: 35 }} /> : <PauseCircleIcon sx={{ fontSize: 35 }} />}
                         </IconButton>
-                        <IconButton disableRipple sx={{ pb: 0 }}>
+                        <IconButton disableRipple sx={{ py: { xs: 0, sm: 1 }, pb: 0, }}>
                             <SkipNextIcon sx={{ fontSize: 25 }} />
                         </IconButton>
-                        <IconButton disableRipple sx={mode === 'repeat' ? { border: '1px solid white' } : { pb: 0 }} onClick={() => setMode('repeat')}>
+                        <IconButton disableRipple sx={mode === 'repeat' ? { border: '1px solid white' } : { py: { xs: 0, sm: 1 }, pb: 0, }} onClick={() => setMode('repeat')}>
                             <RepeatIcon sx={{ fontSize: 16 }} />
                         </IconButton>
                     </Box>
@@ -97,7 +97,7 @@ const Action = () => {
                         </audio>
 
                         <Typography variant='caption'>{formatDuration(position)}</Typography>
-                        <Slider value={position} className='action-slider' color='info' min={0} max={currentSong.duration} step={1} onChange={(_, value) => handleSeek(value as number)} size='small' sx={{ width: { xs: 8 / 10, sm: 7 / 10, md: 9 / 10 }, height: 3, pt: 0 }} />
+                        <Slider value={position} className='action-slider' color='info' min={0} max={currentSong.duration} step={1} onChange={(_, value) => handleSeek(value as number)} size='small' sx={{ width: { xs: 7 / 10, sm: 7 / 10, md: 9 / 10 }, height: 3 }} />
                         <Typography variant='caption'> -{formatDuration(currentSong.duration - position)}</Typography>
                     </Box>
                 </Box>

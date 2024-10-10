@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Avatar} from '@mui/material';
+import { Box, Avatar } from '@mui/material';
 import mainBG from '@/app/assets/mainBg.jpg'
 import Image from 'next/image';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -11,11 +11,11 @@ import Action from './components/main/action/Action';
 import CostumDrawer from './components/main/sideBar/CostumDrawer';
 const page = () => {
   return (
-    <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100dvh' }}>
-      <Avatar variant='rounded' sx={{ height: 1, width: 1, borderRadius: 0, position: 'absolute', top: 0, zIndex: -1 }}>
+    <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100svh' }}>
+      <Avatar variant='rounded' sx={{ height: '100svh', width: 1, borderRadius: 0, position: 'absolute', top: 0, zIndex: -1 }}>
         <Image src={mainBG} alt='background picture' style={{ objectFit: 'cover', filter: 'brightness(90%) blur(2px)' }} fill />
       </Avatar>
-      <Box sx={{ height: { xs: 9 / 11, sm: 600 }, width: { xs: '100vw', sm: '90vw', lg: '80vw' }, borderTopRightRadius: { xs: 0, sm: 20, lg: 40 }, borderTopLeftRadius: { xs: 0, sm: 20, lg: 40 }, overflow: 'hidden' }} className='blur-layer'>
+      <Box sx={{ height: { xs: '78svh', sm: 600 }, width: { xs: '100vw', sm: '90vw', lg: '80vw' }, borderTopRightRadius: { xs: 0, sm: 20, lg: 40 }, borderTopLeftRadius: { xs: 0, sm: 20, lg: 40 }, overflow: 'hidden' }} className='blur-layer'>
 
         <CostumDrawer />
         <Grid container height={1} columnSpacing={{ xs: 1, lg: 2 }} sx={{ px: { xs: 0, sm: 1, lg: 3 }, pt: { xs: 0, sm: 1, lg: 3 } }}>
@@ -36,7 +36,7 @@ const page = () => {
         </Grid>
 
       </Box>
-      <Box sx={{ height: { xs: 2 / 11, sm: 70 }, width: { xs: '100vw', sm: '90vw', lg: '80vw' }, borderBottomRightRadius: { xs: 0, sm: 20, lg: 40 }, borderBottomLeftRadius: { xs: 0, sm: 20, lg: 40 } }} className='blur-layer-action'>
+      <Box sx={{ height: { xs: 'auto', sm: 70 }, width: { xs: '100vw', sm: '90vw', lg: '80vw' }, borderBottomRightRadius: { xs: 0, sm: 20, lg: 40 }, borderBottomLeftRadius: { xs: 0, sm: 20, lg: 40 } }} className='blur-layer-action'>
         <Action />
       </Box>
     </Box >
