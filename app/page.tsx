@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import { Box, Avatar } from '@mui/material';
 import mainBG from '@/app/assets/mainBg.jpg'
@@ -10,17 +9,14 @@ import CurrentAlbum from './components/main/currentAlbum/CurrentAlbum';
 import Mix from './components/main/mix/Mix';
 import Action from './components/main/action/Action';
 import CostumDrawer from './components/main/sideBar/CostumDrawer';
-import { useTheme } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
 const page = () => {
-  const theme = useTheme()
-  const smallerThanSm = useMediaQuery(theme.breakpoints.down('sm'))
+
   return (
     <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100svh' }}>
       <Avatar variant='rounded' sx={{ height: '100svh', width: 1, borderRadius: 0, position: 'absolute', top: 0, zIndex: -1 }}>
         <Image src={mainBG} alt='background picture' style={{ objectFit: 'cover', filter: 'brightness(90%) blur(2px)' }} fill />
       </Avatar>
-      <Box sx={{ flexGrow: smallerThanSm ? 1 : '', flexBasis: smallerThanSm ? 0 : '', height: { sm: 600 }, width: { xs: '100vw', sm: '90vw', lg: '80vw' }, borderTopRightRadius: { xs: 0, sm: 20, lg: 40 }, borderTopLeftRadius: { xs: 0, sm: 20, lg: 40 }, overflow: 'hidden' }} className='blur-layer'>
+      <Box sx={{ flexGrow: { xs: 1, sm: 'unset' }, flexBasis: { xs: 0, sm: 'unset' }, height: { sm: 600 }, width: { xs: '100vw', sm: '90vw', lg: '80vw' }, borderTopRightRadius: { xs: 0, sm: 20, lg: 40 }, borderTopLeftRadius: { xs: 0, sm: 20, lg: 40 }, overflow: 'hidden' }} className='blur-layer'>
 
         <CostumDrawer />
         <Grid container height={1} columnSpacing={{ xs: 1, lg: 2 }} sx={{ px: { xs: 0, sm: 1, lg: 3 }, pt: { xs: 0, sm: 1, lg: 3 } }}>
