@@ -15,7 +15,7 @@ const Banner = ({ data, followHandler }: { data: bannerType, followHandler: (dat
             <Box sx={{ p: { xs: 2, lg: 3 }, zIndex: 1 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <VerifiedIcon sx={{ fontSize: 17, marginRight: 0.8 }} />
-                    <Typography variant='caption' color='black'>Verified Account</Typography>
+                    <Typography variant='caption' color='black' sx={{fontWeight:400}}>Verified Account</Typography>
                 </Box>
                 <Typography variant='h4' color='black' sx={{ fontWeight: 600, mt: 1 }}>{data.title}</Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
