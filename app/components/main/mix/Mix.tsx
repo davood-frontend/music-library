@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DarkBlurBg from '../../common/DarkBlurBg';
 import { Box, Typography } from '@mui/material';
 import Song from './Song';

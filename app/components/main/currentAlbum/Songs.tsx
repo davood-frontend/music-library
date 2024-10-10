@@ -6,12 +6,6 @@ import { useMainContext } from '@/app/context/mainContext';
 
 const Songs = () => {
     const { currentAlbum } = useMainContext()
-    // const finder = (id: number) => {
-    //     const clone = [...data]
-    //     const found = clone.findIndex(item => item.id === id)
-    //     clone[found].favorite = !clone[found].favorite
-    //     setData(clone)
-    // }
 
     return (
         <Box sx={{ px: { xs: 0.5, lg: 2 }, pt: { xs: 2.5, lg: 2 }, flexGrow: 1, flexBasis: 0, display: 'flex', flexDirection: 'column' }}>
