@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Box, IconButton, Menu, MenuItem, ListItemIcon, ListItemText } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite'
 import SplitscreenIcon from '@mui/icons-material/Splitscreen';
 import SpeakerIcon from '@mui/icons-material/Speaker';
 import TuneIcon from '@mui/icons-material/Tune';
@@ -9,6 +10,7 @@ import LaptopIcon from '@mui/icons-material/Laptop';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 const SongOptions = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [isFavorite, setIsFavorite] = useState(false)
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -33,8 +35,8 @@ const SongOptions = () => {
                 </IconButton>
             </Box>
             <Box sx={{ display: { xs: 'flex', lg: 'none' }, justifyContent: { xs: 'end', sm: 'center' }, columnGap: { xs: 1, sm: 0 } }}>
-                <IconButton size='small'>
-                    <FavoriteBorderIcon />
+                <IconButton size='small' onClick={() => setIsFavorite(!isFavorite)}>
+                    {isFavorite ? <FavoriteIcon color='error' /> : <FavoriteBorderIcon />}
                 </IconButton>
                 <IconButton size='small' onClick={handleClick}>
                     <MoreVertIcon />

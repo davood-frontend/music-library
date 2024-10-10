@@ -54,7 +54,7 @@ const Banners = () => {
                 </Box>
 
             </Box>
-            <Swiper spaceBetween={0} autoplay={{ delay: 3500, disableOnInteraction: false }} loop={true} ref={sliderRef} style={{ width: 'calc(100% + 0.3px)', overflow: 'visible', overflowX: 'clip' }}>
+            <Swiper modules={[Autoplay]} spaceBetween={0} autoplay={{ delay: 3500, disableOnInteraction: false }} loop={true} ref={sliderRef} style={{ width: 'calc(100% + 0.3px)', overflow: 'visible', overflowX: 'clip' }}>
                 {banners.map((item, index) => (
                     <SwiperSlide key={index} >
                         <Banner data={item} followHandler={followHandler} />

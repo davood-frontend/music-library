@@ -92,9 +92,9 @@ const Action = () => {
                     </Box>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', columnGap: 1.5, position: 'relative', width: 1, justifyContent: 'center', order: { xs: 1, sm: 2 } }}>
-                        {/* <audio ref={audioRef} loop key={currentSong.song_url}>
-                         <source src={currentSong.song_url} type='audio/mp3' />
-                     </audio> */}
+                        <audio ref={audioRef} loop key={currentSong.song_url}>
+                            <source src={currentSong.song_url} type='audio/mp3' />
+                        </audio>
 
                         <Typography variant='caption'>{formatDuration(position)}</Typography>
                         <Slider value={position} className='action-slider' color='info' min={0} max={currentSong.duration} step={1} onChange={(_, value) => handleSeek(value as number)} size='small' sx={{ width: { xs: 8 / 10, sm: 7 / 10, md: 9 / 10 }, height: 3, pt: 0 }} />

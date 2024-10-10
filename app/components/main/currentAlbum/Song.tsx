@@ -92,8 +92,7 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
         setAnchorEl(event.currentTarget);
         console.log(data)
     };
-    const handleClose = (event: MouseEvent) => {
-        event.stopPropagation()
+    const handleClose = () => {
         setAnchorEl(null);
     };
 
@@ -147,8 +146,8 @@ const Song = ({ counter, data }: { counter: number, data: music_type }) => {
                         onClose={handleClose}
 
                     >
-                        <MenuItem>Share</MenuItem>
-                        <MenuItem>Download</MenuItem>
+                        <MenuItem onClick={handleClose}>Share</MenuItem>
+                        <MenuItem onClick={handleClose}>Download</MenuItem>
                     </Menu>
                 </Grid>
             </Grid>
