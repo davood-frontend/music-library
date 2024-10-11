@@ -11,11 +11,12 @@ import Grid from '@mui/material/Unstable_Grid2'
 import { useMainContext } from '@/app/context/mainContext';
 import SongInfo from './SongInfo';
 import SongOptions from './SongOptions';
+import { music_type, musics } from '@/app/constants/musics';
 
 const Action = () => {
 
     const data = useMainContext()
-    const { currentSong } = data
+    const { currentSong, setCurrentSong } = data
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const [position, setPosition] = useState(0)
@@ -64,6 +65,16 @@ const Action = () => {
         return () => clearInterval(intervalId);
     }, []);
 
+    const prevAndNextHandler = (type: string) => {
+        let id: number;
+        if (type === 'prev') {
+            id = currentSong.id - 1
+        } else {
+            id = currentSong.id + 1
+        }
+        const nextSong = musics.find(data => data.id === id) as music_type
+        setCurrentSong(nextSong)
+    }
     return (
         <Grid container sx={{ alignItems: 'center' }}>
 
@@ -77,13 +88,13 @@ const Action = () => {
                         <IconButton disableRipple sx={mode === 'shuffle' ? { border: '1px solid white' } : { py: { xs: 0, sm: 1 }, pb: { sm: 0 } }} onClick={() => setMode('shuffle')}>
                             <ShuffleIcon sx={{ fontSize: 16 }} />
                         </IconButton>
-                        <IconButton disableRipple sx={{ py: { xs: 0, sm: 1 }, pb: { sm: 0 } }}>
+                        <IconButton disableRipple sx={{ py: { xs: 0, sm: 1 }, pb: { sm: 0 } }} onClick={() => prevAndNextHandler('prev')} disabled={currentSong.id === 1}>
                             <SkipPreviousIcon sx={{ fontSize: 25 }} />
                         </IconButton>
                         <IconButton sx={{ py: { xs: 0, sm: 1 }, pb: { sm: 0 } }} onClick={handlePlayPause} disableRipple>
                             {paused ? <PlayCircleIcon sx={{ fontSize: 35 }} /> : <PauseCircleIcon sx={{ fontSize: 35 }} />}
                         </IconButton>
-                        <IconButton disableRipple sx={{ py: { xs: 0, sm: 1 }, pb: { sm: 0 } }}>
+                        <IconButton disableRipple sx={{ py: { xs: 0, sm: 1 }, pb: { sm: 0 } }} onClick={() => prevAndNextHandler('next')} disabled={currentSong.id === musics.length}>
                             <SkipNextIcon sx={{ fontSize: 25 }} />
                         </IconButton>
                         <IconButton disableRipple sx={mode === 'repeat' ? { border: '1px solid white' } : { py: { xs: 0, sm: 1 }, pb: { sm: 0 } }} onClick={() => setMode('repeat')}>

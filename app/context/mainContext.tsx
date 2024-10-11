@@ -1,6 +1,6 @@
 'use client'
 import React, { createContext, useState, useContext } from "react";
-import { music_type, musics, musics_type } from "../constants/musics";
+import { music_type} from "../constants/musics";
 import { albumType, allSongs } from "../constants/albums-data";
 type contextType = {
     currentSong: music_type,
